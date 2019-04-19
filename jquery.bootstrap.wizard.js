@@ -1,7 +1,7 @@
 /*!
  * jQuery twitter bootstrap wizard plugin
  * Examples and documentation at: http://github.com/VinceG/twitter-bootstrap-wizard
- * version 1.4.2
+ * version 1.4.3
  * Requires jQuery v1.3.2 or later
  * Supports Bootstrap 2.2.x, 2.3.x, 3.0
  * Dual licensed under the MIT and GPL licenses:
@@ -64,7 +64,7 @@ var bootstrapWizardCreate = function(element, options) {
 			return false;
 		}
 
-		if($settings.onNext && typeof $settings.onNext === 'function' && $settings.onNext($activeTab, $navigation, obj.nextIndex())===false){
+		if($settings.onNext && typeof $settings.onNext === 'function' && $settings.onNext($activeTab, $navigation, obj.nextIndex(), e)===false){
 			return false;
 		}
 
@@ -85,7 +85,7 @@ var bootstrapWizardCreate = function(element, options) {
 			return false;
 		}
 
-		if($settings.onPrevious && typeof $settings.onPrevious === 'function' && $settings.onPrevious($activeTab, $navigation, obj.previousIndex())===false){
+		if($settings.onPrevious && typeof $settings.onPrevious === 'function' && $settings.onPrevious($activeTab, $navigation, obj.previousIndex(), e)===false){
 			return false;
 		}
 
@@ -100,7 +100,7 @@ var bootstrapWizardCreate = function(element, options) {
 	};
 
 	this.first = function (e) {
-		if($settings.onFirst && typeof $settings.onFirst === 'function' && $settings.onFirst($activeTab, $navigation, obj.firstIndex())===false){
+		if($settings.onFirst && typeof $settings.onFirst === 'function' && $settings.onFirst($activeTab, $navigation, obj.firstIndex(), e)===false){
 			return false;
 		}
 
@@ -115,7 +115,7 @@ var bootstrapWizardCreate = function(element, options) {
 	};
 
 	this.last = function(e) {
-		if($settings.onLast && typeof $settings.onLast === 'function' && $settings.onLast($activeTab, $navigation, obj.lastIndex())===false){
+		if($settings.onLast && typeof $settings.onLast === 'function' && $settings.onLast($activeTab, $navigation, obj.lastIndex(), e)===false){
 			return false;
 		}
 
@@ -130,7 +130,7 @@ var bootstrapWizardCreate = function(element, options) {
 
 	this.finish = function (e) {
 	  if ($settings.onFinish && typeof $settings.onFinish === 'function') {
-	    $settings.onFinish($activeTab, $navigation, obj.lastIndex());
+	    $settings.onFinish($activeTab, $navigation, obj.lastIndex(), e);
 	  }
 	};
 
